@@ -1,2 +1,2 @@
 //this is localbishakha
-var a = 20;
+var a = 10;
