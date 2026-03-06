@@ -1,63 +1,86 @@
-# Git Doc
+# 1 git
 
-| Code                                     | Output / Example               | Description                               |
-| :--------------------------------------- | :----------------------------- | :---------------------------------------- |
-| `git -v`                                 | `git version 2.51.0.windows.1` | Check if Git is installed.                |
-| `git config --global --list`             | `user.name=Bishakha Tuladhar`  | Show username, email, and default branch. |
-| `git config --global user.name "Name"`   | —                              | Set your global username.                 |
-| `git config --global user.email "Email"` | —                              | Set your global email.                    |
-| `git init`                               | —                              | Initialize an empty local repository.     |
+## 1.1 initial code
 
----
+| Code                                                                                                                                                   | Output                                                                                    | Description                                    |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------- | :--------------------------------------------- |
+| Git -v                                                                                                                                                 | git version 2.51.0.windows.1                                                              | Check the git is installed or not              |
+| git config --global --list                                                                                                                             | user.name=Bishakha Tuladhar user.email=bishakhatuladhar@gmail.com init.defaultbranch=main | show the list of username,email,default branch |
+| git config --global user.name "Bishakha Tuladhar git config –global user.email bishakhatuladhar@gmail.com git config –global init.defaultbranch “main” |                                                                                           | Set username,email, and default branch         |
+| Git init                                                                                                                                               |                                                                                           | initialize an empty local repo                 |
+| ls                                                                                                                                                     |                                                                                           |                                                |
 
-## 2. Frequently Used Commands
+## 1.2 Frequently use code
 
-This section covers the daily workflow of adding, committing, and checking status.
+| Code                                                                                                                                                              | Output                                                                                                                                                                                                                                                                                                                   | Description                                                                |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Git add 1.index.js                                                                                                                                                |                                                                                                                                                                                                                                                                                                                          |                                                                            |
+| Git add .                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                          | (Note: it add all the file)                                                |
+| git commit -m "typescript initial commit"                                                                                                                         | [main (root-commit) dd90f7e] typescript initial commit 3 files changed, 2 insertions(+) create mode 100644 1.index.js create mode 100644 1.index.ts create mode 100644 ReactTypeScript                                                                                                                                   | Commit the file                                                            |
+| Git status                                                                                                                                                        | On branch main Changes not staged for commit: (use "git add <file>..." to update what will be committed) (use "git restore <file>..." to discard changes in working directory) modified: 1 React js.docx modified: 17.Git.js modified: ~$React js.docx no changes added to commit (use "git add" and/or "git commit -a") | Check status of the project . Check the project is in commit state or not. |
+| Git branch                                                                                                                                                        | \* main                                                                                                                                                                                                                                                                                                                  | Show all the branch name                                                   |
+| Git branch bishakha                                                                                                                                               |                                                                                                                                                                                                                                                                                                                          | Create new branch                                                          |
+| Git checkout bishakha Or git switch bishakha                                                                                                                      | Switched to branch 'bishakha'                                                                                                                                                                                                                                                                                            | Swtich the branch                                                          |
+| (note:create a new file filename.ts) Git add . Git commit -m “typescript localbishakha test” Git checkout main (note: in main branch there is no changes in main) |                                                                                                                                                                                                                                                                                                                          |                                                                            |
+| git merge bishakha                                                                                                                                                | Updating dd90f7e..45310a5 Fast-forward testlocalbishakha.ts                                                                                                                                                                                                                                                              | 1 + 1 file changed, 1 insertion(+) create mode 100644 testlocalbishakha.ts | Merge in local branch only If we want to transfer the file from bishakha to main branch. New changes in bishakha i.e. testlocalbishakha.ts file |
+| Conflict scenario Change var a=10; in bishakha Add, commit Change var a=20 in main Then add, commit From main , git merge bishakha We will get error              |                                                                                                                                                                                                                                                                                                                          |                                                                            |
 
-| Code                      | Description                               |
-| :------------------------ | :---------------------------------------- |
-| `git add .`               | Adds all files to the staging area.       |
-| `git commit -m "message"` | Saves the staged snapshot to history.     |
-| `git status`              | Check which files are modified or staged. |
-| `git branch`              | List all branch names.                    |
-| `git checkout -b <name>`  | Create and switch to a new branch.        |
+### 1.2.1 Git hub
 
----
+| Code                                                                | Output | Description                                                                                 |
+| :------------------------------------------------------------------ | :----- | :------------------------------------------------------------------------------------------ |
+| Create repository named Bishakha123/TypeScript                      |        |                                                                                             |
+| git remote add origin https://github.com/Bishakha123/TypeScript.git |        | Connection between local and remote                                                         |
+| git push -u origin main                                             |        | Push the local commit to remote                                                             |
+| Git pull origin <branch_name>                                       |        | Pull all the code from remote to local branch Fetch+merge                                   |
+| Git fetch origin                                                    |        | Merge garna aagadi confirm garnu paryo ki merge garne ho bhannera herna lai so we use fetch |
+| Git diff main origin/main                                           |        | Show the difference of the local and remote branch                                          |
 
-## 3. Merging & Conflict Handling
+### 1.2.2 Pull request
 
-How to combine work from different branches.
+| Code                                                                                                           | Output | Description                                                                       |
+| :------------------------------------------------------------------------------------------------------------- | :----- | :-------------------------------------------------------------------------------- |
+| Git branch bishakha Git checkout bishakha                                                                      |        | Create new branch name “bishakha”                                                 |
+| Create a new file “testbishakha.js” Git add. Git commit -m “pullrequest1 3/5/2026 6.00”                        |        |                                                                                   |
+| Git push origin bishakha                                                                                       |        | In remote, a new branch “bishakha” is created and the data is updated.            |
+| Click pull request Click “new pull request” button Choose branch main and bishakha Click “create pull request” |        | In pull request                                                                   |
+| Click “merge pull request” (note: updates the main branch in remote only)                                      |        |                                                                                   |
+| In local Git pull origin main                                                                                  |        | In local it will pull all the code of the remote main then we will get full code. |
 
-### Local Merge Example
+### 1.2.3 Cherry-pick
 
-When transferring files from a feature branch (e.g., `bishakha`) to `main`:
+If in branch “main” we want specific commit of branch “bishakha” then we use cherry-pick
 
-1. `git checkout main`
-2. `git merge bishakha`
+| Code                       | Output | Description      |
+| :------------------------- | :----- | :--------------- |
+| Git cherry-pic <commit-id> |        |                  |
+| Git log                    |        | To get commit id |
 
-> **Note on Conflicts:** If the same line is changed in both branches, Git will throw an error. You must manually resolve the code, then add and commit.
+### 1.2.4 Rebase
 
----
+| Rebase            | Commit                                             |
+| :---------------- | :------------------------------------------------- |
+| Rewriting history | Create a new commit that joins 2 branches together |
 
-## 4. GitHub Remote Integration
+Main: A->B->C
+Bishakha: (branched from B)-> D-> E
+(Note: in bishakha branched C commit is missing)
 
-Connecting your local project to the cloud.
+Git checkout main
+Git pull origin main
+Git checkout bishakha
+Git rebase main
 
-| Code                          | Description                                     |
-| :---------------------------- | :---------------------------------------------- |
-| `git remote add origin <url>` | Connect local repo to GitHub.                   |
-| `git push -u origin main`     | Push local commits to the remote `main` branch. |
-| `git pull origin main`        | Fetch and merge changes from remote to local.   |
-| `git fetch origin`            | Download remote changes without merging yet.    |
+After
+Bishakha :A->B->C->D->E
 
----
+## 1.3 Easy code
 
-## 5. Advanced History Tools
-
-| Tool            | Code                   | Description                                        |
-| :-------------- | :--------------------- | :------------------------------------------------- |
-| **Cherry-Pick** | `git cherry-pick <id>` | Apply a specific commit from another branch.       |
-| **Rebase**      | `git rebase main`      | Rewrite history to put your work on top of `main`. |
-| **Log**         | `git log --oneline`    | View a condensed version of commit history.        |
-
----
+| Code                          | Output                                                                                                                                                                              | Description                                |
+| :---------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------- |
+| Pwd                           |                                                                                                                                                                                     | Showing the path                           |
+| Git log                       | commit dd90f7ebbdfc34a8417a8d2157ffa32f4e3c0738 (HEAD -> main) Author: Bishakha Tuladhar <bishakhatuladhar@gmail.com> Date: Mon Mar 2 14:14:33 2026 +0545 typescript initial commit | Shows the commit history                   |
+| git checkout -b <branch_name> |                                                                                                                                                                                     | Create new branch and switch the branch    |
+| Git log --help                |                                                                                                                                                                                     |                                            |
+| Git log main..bishakha        |                                                                                                                                                                                     | Main ma changes cha but bishakha ma chaina |
+| Git branch -D bishakha        |                                                                                                                                                                                     | Delete the bishakha branch                 |
